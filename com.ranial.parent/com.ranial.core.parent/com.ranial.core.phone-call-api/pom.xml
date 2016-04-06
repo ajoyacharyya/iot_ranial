@@ -7,9 +7,9 @@
     <artifactId>parent</artifactId>
     <version>0.0.1-SNAPSHOT</version>
   </parent>
-  <artifactId>mediation-api</artifactId>
+  <artifactId>phone-call-api</artifactId>
   <packaging>bundle</packaging>
-  <name>ranial-core-mediation-api</name>
+  <name>ranial-phone-call-api</name>
   <url>http://maven.apache.org</url>
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -26,7 +26,7 @@
 					<instructions>
 						<!-- <Export-Package>com.ranial.core.mediation.api.*;version="${pom.version}"</Export-Package> -->
 						<Service-Component>*</Service-Component>
-						<!-- <bundleActivator>com.my.company.Activator</bundleActivator> -->
+						<!-- <bundleActivator>com.ranial.core.mediation.impl.Activator</bundleActivator> -->
 					</instructions>
 				</configuration>
 			</plugin>

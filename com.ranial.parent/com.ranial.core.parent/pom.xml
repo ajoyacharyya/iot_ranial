@@ -31,6 +31,22 @@
 			<artifactId>org.apache.felix.scr.annotations</artifactId>
 			<version>1.9.12</version>
 		</dependency> -->
+		<!--  <dependency>
+            <groupId>org.apache.felix</groupId>
+            <artifactId>org.osgi.core</artifactId>
+            <version>1.4.0</version>
+        </dependency> -->
+        
+        <dependency>
+			<groupId>org.osgi</groupId>
+			<artifactId>org.osgi.core</artifactId>
+			<version>4.3.0</version>
+		</dependency>
+		<dependency>
+			<groupId>org.osgi</groupId>
+			<artifactId>org.osgi.compendium</artifactId>
+			<version>5.0.0</version>
+		</dependency>
 	</dependencies>
 
 	<build>
@@ -44,31 +60,10 @@
 					<target>1.8</target>
 				</configuration>
 			</plugin>
-			<plugin>
-				<groupId>org.apache.felix</groupId>
-				<artifactId>maven-bundle-plugin</artifactId>
-				<version>3.0.1</version>
-				<extensions>true</extensions>
-				<configuration>
-					<instructions>
-						<!-- <Export-Package>com.ranial.core.mediation.api.*;version="${pom.version}"</Export-Package> -->
-						<Service-Component>*</Service-Component>
-					</instructions>
-				</configuration>
-			</plugin>
-			<!-- <plugin>
-				<groupId>org.apache.felix</groupId>
-				<artifactId>maven-scr-plugin</artifactId>
-				<version>1.21.0</version>
-				<executions>
-					<execution>
-						<id>generate-scr-scrdescriptor</id>
-						<goals>
-							<goal>scr</goal>
-						</goals>
-					</execution>
-				</executions>
-			</plugin> -->
+			<!-- <plugin> <groupId>org.apache.felix</groupId> <artifactId>maven-scr-plugin</artifactId> 
+				<version>1.21.0</version> <executions> <execution> <id>generate-scr-scrdescriptor</id> 
+				<goals> <goal>scr</goal> </goals> </execution> </executions> </plugin> -->
+
 		</plugins>
 	</build>
 	<modules>
@@ -76,5 +71,11 @@
 		<module>
 			com.ranial.core.mediation-impl
 		</module>
+
+
+
+
+		<module>com.ranial.core.phone-call-api</module>
+		<module>com.ranial.core.phone-call-impl</module>
 	</modules>
 </project>

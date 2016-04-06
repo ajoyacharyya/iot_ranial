@@ -7,13 +7,21 @@
     <artifactId>parent</artifactId>
     <version>0.0.1-SNAPSHOT</version>
   </parent>
-  <artifactId>mediation-api</artifactId>
+  <artifactId>email-impl</artifactId>
+  <name>ranial-email-impl</name>
   <packaging>bundle</packaging>
-  <name>ranial-core-mediation-api</name>
   <url>http://maven.apache.org</url>
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
   </properties>
+  <dependencies>
+    <dependency>
+      <groupId>com.ranial.core</groupId>
+      <artifactId>email-api</artifactId>
+      <version>${pom.version}</version>
+      <scope>provide</scope>
+    </dependency>
+  </dependencies>
   
   <build>
 		<plugins>
@@ -26,7 +34,7 @@
 					<instructions>
 						<!-- <Export-Package>com.ranial.core.mediation.api.*;version="${pom.version}"</Export-Package> -->
 						<Service-Component>*</Service-Component>
-						<!-- <bundleActivator>com.my.company.Activator</bundleActivator> -->
+						<Bundle-Activator>com.ranial.core.email.impl.Activator</Bundle-Activator>
 					</instructions>
 				</configuration>
 			</plugin>
