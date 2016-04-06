@@ -72,7 +72,9 @@
 		</plugins>
 	</build>
 	<modules>
-		<module>com.ranial.core.mediation-api-0.0.1-SNAPSHOT</module>
-		<module>com.ranial.core.mediation-impl-0.0.1-SNAPSHOT</module>
+		<module>../com.ranial.core.mediation-api-0.0.1-SNAPSHOT</module>
+		<module>
+			../com.ranial.core.mediation-impl-0.0.1-SNAPSHOT
+		</module>
 	</modules>
 </project>

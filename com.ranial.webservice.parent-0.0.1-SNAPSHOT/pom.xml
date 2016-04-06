@@ -91,7 +91,7 @@
 		</plugins>
 	</build>
 	<modules>
-		<module>com.ranial.webservice.api-0.0.1-SNAPSHOT</module>
-		<module>com.ranial.webservice.impl-0.0.1-SNAPSHOT</module>
+		<module>../com.ranial.webservice.api-0.0.1-SNAPSHOT</module>
+		<module>../com.ranial.webservice.impl-0.0.1-SNAPSHOT</module>
 	</modules>
 </project>
