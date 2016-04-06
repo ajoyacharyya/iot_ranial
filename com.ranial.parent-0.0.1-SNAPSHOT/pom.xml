@@ -7,7 +7,7 @@
   <name>com.ranial.parent</name>
   <description>Parent Project</description>
   <modules>
-  	<module>../com.ranial.core.parent-0.0.1-SNAPSHOT</module>
-  	<module>../com.ranial.webservice.parent-0.0.1-SNAPSHOT</module>
+  	<module>com.ranial.core.parent-0.0.1-SNAPSHOT</module>
+  	<module>com.ranial.webservice.parent-0.0.1-SNAPSHOT</module>
   </modules>
 </project>
