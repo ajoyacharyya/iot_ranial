@@ -32,8 +32,8 @@
 				<extensions>true</extensions>
 				<configuration>
 					<instructions>
-						<!-- <Export-Package>com.ranial.core.mediation.api.*;version="${pom.version}"</Export-Package> -->
-						<Service-Component>*</Service-Component>
+						<!-- <Export-Package>com.ranial.core.phone.call.api.*;version="${pom.version}"</Export-Package> -->
+						<!-- <Service-Component>*</Service-Component> -->
 						<Bundle-Activator>com.ranial.core.phone.call.impl.Activator</Bundle-Activator>
 					</instructions>
 				</configuration>

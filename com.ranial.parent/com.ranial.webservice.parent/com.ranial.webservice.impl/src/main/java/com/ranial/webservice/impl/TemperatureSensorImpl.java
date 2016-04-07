@@ -14,13 +14,11 @@ public class TemperatureSensorImpl implements TemperatureSensor{
 	
 	private Mediator mediator;
 	
-	private static Mediator copyMediator;
 	
 	public void sense(String temp) {
 		LOG.info("Sensing Temperature "+temp);
 		LOG.info("Mediator instance in sense "+mediator);
-		//mediator.mediate("TEMP_SENSOR", temp);
-		copyMediator.mediate("TEMP_SENSOR", temp);
+		mediator.mediate("TEMP_SENSOR", temp);
 	}
 
 	public String getCurrentTemp(String deviceId) {
@@ -30,16 +28,15 @@ public class TemperatureSensorImpl implements TemperatureSensor{
 	}
 	
 	
-	/*public Mediator getMediator() {
+	public Mediator getMediator() {
 		LOG.info("Getting mediator ");
 		return mediator;
-	}*/
+	}
 	
 	
 	public void setMediator(Mediator mediator) {
 		LOG.info("Setting mediator ");
 		this.mediator = mediator;
-		copyMediator=mediator;
 	}
 	
 	public void startup(){

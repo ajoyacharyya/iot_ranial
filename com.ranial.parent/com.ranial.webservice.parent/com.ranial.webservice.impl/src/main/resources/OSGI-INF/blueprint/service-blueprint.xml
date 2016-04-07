@@ -28,11 +28,17 @@
     <cxf:bus id="sensorRestBus">
     </cxf:bus>
 
-    <bean id="temperatureSensorImpl" class="com.ranial.webservice.impl.TemperatureSensorImpl"/>
+    <!-- <bean id="temperatureSensorImpl" class="com.ranial.webservice.impl.TemperatureSensorImpl"/> -->
+    
+    <reference id="mediationImplService" interface="com.ranial.core.mediation.api.Mediator"
+		availability="mandatory" />
+	<bean id="tempSensorServiceImpl" class="com.ranial.webservice.impl.TemperatureSensorImpl">
+		<property name="mediator" ref="mediationImplService" />
+	</bean>
     
     <jaxrs:server address="/sensor" id="tempSensorService">
         <jaxrs:serviceBeans>
-            <ref component-id="temperatureSensorImpl" />
+            <ref component-id="tempSensorServiceImpl" />
         </jaxrs:serviceBeans>
         <jaxrs:features>
             <cxf:logging />

@@ -3,12 +3,6 @@
 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
 xsi:schemaLocation="http://www.osgi.org/xmlns/blueprint/v1.0.0 http://www.osgi.org/xmlns/blueprint/v1.0.0/blueprint.xsd ">
 
-	<bean id="phoneService" class="com.ranial.core.phone.call.impl.CallPhoneImpl"></bean>
-		<!-- scope="singleton" init-method="startup" -->
-	<service ref="phoneService" interface="com.ranial.core.phone.call.api.IPhoneCall">
-		<service-properties>
-			<!-- This property is only important for the DOSGi tutorial -->
-			<!-- <entry key="service.exported.interfaces" value="*"/> -->
-		</service-properties>
-	</service>
+	<bean id="phoneService" class="com.ranial.core.phone.call.impl.CallPhoneImpl"/>
+	<service ref="phoneService" interface="com.ranial.core.phone.call.api.IPhoneCall"/>
 </blueprint>
