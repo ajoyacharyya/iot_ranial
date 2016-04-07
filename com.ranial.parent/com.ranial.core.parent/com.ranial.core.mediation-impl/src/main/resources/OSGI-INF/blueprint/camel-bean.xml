@@ -4,13 +4,13 @@
 	</bean>
 	<reference id="phoneService" interface="com.ranial.core.phone.call.api.IPhoneCall" />
 
-	<!-- <camelContext xmlns="http://camel.apache.org/schema/blueprint">
+	<camelContext xmlns="http://camel.apache.org/schema/blueprint">
 		<route>
 			<from uri="direct:start" />
 			<to uri="mediatorBean:mediate"></to>
 			<to uri="phoneService:call"></to>
 
 		</route>
-	</camelContext> -->
+	</camelContext>
 
 </blueprint>
