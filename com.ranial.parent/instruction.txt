@@ -1,0 +1,22 @@
+Karaf Version – 4.0.4
+feature:repo-add cxf 3.1.5
+feature:install cxf-jaxrs http-whiteboard
+
+feature:repo-add mvn:org.apache.camel.karaf/apache-camel/2.16.0/xml/features
+feature:install camel
+
+install -s mvn:org.apache.zookeeper/zookeeper/3.3.3
+install -s mvn:com.101tec/zkclient/0.4
+install -s mvn:org.scala-lang/scala-library/2.10.4
+install -s mvn:org.apache.servicemix.bundles/org.apache.servicemix.bundles.metrics-core/2.2.0_1
+install -s mvn:org.apache.servicemix.bundles/org.apache.servicemix.bundles.metrics-annotation/2.2.0_1
+install -s mvn:org.apache.servicemix.bundles/org.apache.servicemix.bundles.kafka_2.10/0.8.1.1_1
+install -s mvn:org.apache.servicemix.bundles/org.apache.servicemix.bundles.kafka-clients/0.8.2.0_1
+install -s mvn:org.apache.camel/camel-kafka/2.16.0
+
+install -s mvn:com.ranial.webservice/api/0.0.1-SNAPSHOT
+install -s mvn:com.ranial.core/mediation-api/0.0.1-SNAPSHOT
+install -s mvn:com.ranial.core/phone-call-api/0.0.1-SNAPSHOT
+install -s mvn:com.ranial.core/phone-call-impl/0.0.1-SNAPSHOT
+install -s mvn:com.ranial.core/mediation-impl/0.0.1-SNAPSHOT
+install -s mvn:com.ranial.webservice/impl/0.0.1-SNAPSHOT
