@@ -8,7 +8,7 @@ import com.ranial.core.mediation.camel.MediationProducer;
 public class MediationImpl implements Mediator{
 	//public static final String COMPONENT_NAME = "MediationService";
 	private static final transient Log LOG = LogFactory.getLog(MediationImpl.class);
-	public void mediate(String soureceType, Object input) {
+	public void mediate(String soureceType, String input) {
 		LOG.info("In the mediation component" +soureceType+" "+input);
 		new MediationProducer().publishMessage(soureceType, input.toString());
 	}

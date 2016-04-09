@@ -12,43 +12,19 @@ public class MediationRouter extends RouteBuilder {
 			+ "&groupId={{mediation.kafkaGroup}}&zookeeperHost={{mediation.zookeeperHost}}"
 			+ "&zookeeperPort={{mediation.zookeeperPort}}";
 	
-	//static final String KAFKA = "kafka:localhost:9092?topic=test&groupId=testing&autoOffsetReset=earliest&consumersCount=1";
 	
 	@Override
 	public void configure() throws Exception {
 		LOG.info("Inside routerbuilder -----");
-		
-		/*String zkhost = "&zookeeperHost=localhost";
-	    String zkport = "&zookeeperPort=" + ZOOKEEPER_PORT;
-	    String partitioner = "&partitionerClass=" + SimpleKafkaPartitioner.class.getName();
-	    final String epuri = "kafka:localhost:" + KAFKA_PORT + "?topic=" + TEST_TOPIC_NAME + "&groupId=group1" + zkhost + zkport + partitioner;*/
-		
-		//from("direct:kaiotep").to("kafka:kaiot?zkConnect=localhost:2181&metadataBrokerList=localhost:9092&producerType=async&groupId="+ uid + KafkaConstants.DEFAULT_GROUP.value);
-
-	    
-		from(KAFKA).log(LoggingLevel.INFO, ":::: Mediation ${body}! ::::")
-		.setBody(simple("Mediation ${body}! \\n"))
-	.end();
-			/*	.process(new Processor() {
-					@Override
-					public void process(Exchange exchange) throws Exception {
-						String messageKey = "";
-						LOG.info("Inside routerbuilder -  process -----");
-						if (exchange.getIn() != null) {
-							LOG.info("Inside routerbuilder -  process ---exchange.getIn() != null--");
-							Message message = exchange.getIn();
-							Integer partitionId = (Integer) message.getHeader(KafkaConstants.PARTITION);
-							String topicName = (String) message.getHeader(KafkaConstants.TOPIC);
-							if (message.getHeader(KafkaConstants.KEY) != null)
-								messageKey = (String) message.getHeader(KafkaConstants.KEY);
-							Object data = message.getBody();
-							LOG.info("Inside routerbuilder -  process data"+data);
-							LOG.info("Inside routerbuilder ------ topicName :: " + topicName + " partitionId :: " + partitionId
-									+ " messageKey :: " + messageKey + " message :: " + data + "\n");
-						}
-					}
-				}).to("log:input");*/
+		from(KAFKA).log(LoggingLevel.INFO, ":::: Mediation ${body}! :::: " )
+		//.setBody(simple("Mediation ${body}! \\n"))
+		.choice()
+			.when(xpath("/tempSensorInput/temperature > 200"))
+				.log(LoggingLevel.INFO, "Temp is greater than 200 calling phone").to("bean:phoneService?method=call(${body})")
+			.when(xpath("/tempSensorInput/temperature > '100'"))
+				.log(LoggingLevel.INFO, "Temp Great than 100 calling email").to("bean:emailService?method=send(${body})")
+			.otherwise()
+			.log(LoggingLevel.INFO, "Temp is less than or equal to 100").end();
 
 	}
-
 }

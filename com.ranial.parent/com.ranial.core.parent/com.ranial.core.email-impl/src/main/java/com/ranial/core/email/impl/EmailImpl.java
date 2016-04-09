@@ -8,7 +8,7 @@ import com.ranial.core.email.api.IEmail;
 public class EmailImpl implements IEmail{
 	private static final transient Log LOG = LogFactory.getLog(EmailImpl.class);
 	public void send(String contract) {
-		LOG.info("sending email...");
+		LOG.info("sending email..."+contract);
 		
 	}
 	

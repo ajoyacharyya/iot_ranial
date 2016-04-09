@@ -23,9 +23,11 @@ public class MediationProducer {
 
 		Producer<String, String> producer = new KafkaProducer<String, String>(props);
 
-		producer.send(new ProducerRecord<String, String>("test", src, src+":"+inputdata));
+		producer.send(new ProducerRecord<String, String>("test", src, inputdata));
 
 		producer.close();
 	}
+	
+	
 
 }

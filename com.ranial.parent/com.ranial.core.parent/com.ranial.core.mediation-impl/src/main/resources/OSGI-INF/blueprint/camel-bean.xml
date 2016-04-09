@@ -23,12 +23,7 @@
 		<routeBuilder ref="routeBuilder" />
 	</camelContext>
 	
-	<!-- <route>
-            <from uri="rest:get:cxf/sensor:/{deviceId}"/>
-            <setHeader headerName="kafka.PARTITION_KEY">
-                <constant>Test</constant>
-            </setHeader>
-            <to uri="kafka:localhost:9092?topic=test&amp;zookeeperHost=localhost&amp;zookeeperPort=2181&amp;groupId=group1&amp;serializerClass=kafka.serializer.StringEncoder" />
-	</route> -->
-
+	<reference id="emailService" interface="com.ranial.core.email.api.IEmail"/>
+	
+	<reference id="phoneService" interface="com.ranial.core.phone.call.api.IPhoneCall" />
 </blueprint>

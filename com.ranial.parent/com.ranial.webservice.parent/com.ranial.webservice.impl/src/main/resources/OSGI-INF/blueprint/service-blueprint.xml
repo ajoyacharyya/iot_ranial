@@ -32,6 +32,7 @@
     
     <reference id="mediationImplService" interface="com.ranial.core.mediation.api.Mediator"
 		availability="mandatory" />
+		
 	<bean id="tempSensorServiceImpl" class="com.ranial.webservice.impl.TemperatureSensorImpl">
 		<property name="mediator" ref="mediationImplService" />
 	</bean>

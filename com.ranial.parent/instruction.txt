@@ -18,5 +18,21 @@ install -s mvn:com.ranial.webservice/api/0.0.1-SNAPSHOT
 install -s mvn:com.ranial.core/mediation-api/0.0.1-SNAPSHOT
 install -s mvn:com.ranial.core/phone-call-api/0.0.1-SNAPSHOT
 install -s mvn:com.ranial.core/phone-call-impl/0.0.1-SNAPSHOT
+install -s mvn:com.ranial.core/email-api/0.0.1-SNAPSHOT
+install -s mvn:com.ranial.core/email-impl/0.0.1-SNAPSHOT
 install -s mvn:com.ranial.core/mediation-impl/0.0.1-SNAPSHOT
 install -s mvn:com.ranial.webservice/impl/0.0.1-SNAPSHOT
+ 
+update mvn:com.ranial.webservice/api/0.0.1-SNAPSHOT
+update mvn:com.ranial.core/mediation-api/0.0.1-SNAPSHOT
+update mvn:com.ranial.core/phone-call-api/0.0.1-SNAPS
+update mvn:com.ranial.core/phone-call-impl/0.0.1-SNAPSHOT
+update mvn:com.ranial.core/email-api/0.0.1-SNAPSHOT
+update mvn:com.ranial.core/email-impl/0.0.1-SNAPSHOT
+update mvn:com.ranial.core/mediation-impl/0.0.1-SNAPSHOT
+update mvn:com.ranial.webservice/impl/0.0.1-SNAPSHOT
+
+
+----------------------KAFKA----------------------------
+bin/zookeeper-server-start.sh config/zookeeper.properties
+bin/kafka-server-start.sh config/server.properties

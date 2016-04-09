@@ -9,7 +9,7 @@ public class CallPhoneImpl implements IPhoneCall{
 	private static final transient Log LOG = LogFactory.getLog(CallPhoneImpl.class);
 
 	public void call(String to) {
-		LOG.info("Calling phone ...");
+		LOG.info("Calling phone ..."+to);
 		
 	}
 
