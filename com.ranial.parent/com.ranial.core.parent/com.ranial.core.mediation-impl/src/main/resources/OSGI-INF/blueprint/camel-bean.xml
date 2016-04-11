@@ -23,6 +23,11 @@
 		<routeBuilder ref="routeBuilder" />
 	</camelContext>
 	
+	 <bean id="convertXMLToMap" class="com.ranial.core.mediation.camel.ConvertXMLToMap" />
+	 <bean id="ruleExecutor" class="com.ranial.core.mediation.drools.RuleExecutor" />
+
+  <!--  <bean id="droolsHelper" class="com.ranial.core.mediation.drools.DroolsCommandHelper"/> -->
+	
 	<reference id="emailService" interface="com.ranial.core.email.api.IEmail"/>
 	
 	<reference id="phoneService" interface="com.ranial.core.phone.call.api.IPhoneCall" />

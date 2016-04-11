@@ -17,14 +17,20 @@ public class MediationRouter extends RouteBuilder {
 	public void configure() throws Exception {
 		LOG.info("Inside routerbuilder -----");
 		from(KAFKA).log(LoggingLevel.INFO, ":::: Mediation ${body}! :::: " )
-		//.setBody(simple("Mediation ${body}! \\n"))
+		.to("bean:convertXMLToMap?method=convert(${body})")
+		.log(LoggingLevel.INFO, ":::: After MAP ${body}! :::: " )
+		.to("bean:ruleExecutor?method=execute(${body})")
+		.log(LoggingLevel.INFO, ":::: After Rule exec ${body}! :::: " )
 		.choice()
-			.when(xpath("/tempSensorInput/temperature > 200"))
-				.log(LoggingLevel.INFO, "Temp is greater than 200 calling phone").to("bean:phoneService?method=call(${body})")
-			.when(xpath("/tempSensorInput/temperature > '100'"))
-				.log(LoggingLevel.INFO, "Temp Great than 100 calling email").to("bean:emailService?method=send(${body})")
+		  	.when().simple("${body[router1]} == true")
+				.log(LoggingLevel.INFO, "Temp is greater than 200 calling phone").to("bean:phoneService?method=call(temp>200)")
+			.when().simple("${body[router2]} == true")
+				.log(LoggingLevel.INFO, "Temp Great than 100 and less than 200 calling email").to("bean:emailService?method=send(temp < 200)")
 			.otherwise()
-			.log(LoggingLevel.INFO, "Temp is less than or equal to 100").end();
+			.log(LoggingLevel.INFO, "Temp is less than or equal to 100")
+			.end();
+		
+		
 
 	}
 }

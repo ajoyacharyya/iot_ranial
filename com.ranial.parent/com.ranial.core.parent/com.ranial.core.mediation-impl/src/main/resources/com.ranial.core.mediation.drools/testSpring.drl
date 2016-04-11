@@ -1,0 +1,23 @@
+
+package com.ranial.core.mediation.drools;
+
+import java.util.Map;
+
+
+rule "check temperature greater than 200"
+
+when
+      body: Map(this["temperature"] > 200)
+then
+    body.put("router1","true");
+end
+
+rule "check temperature greater than 100 and less than 200"
+ 	
+when
+      body: Map(this["temperature"] > 100 && this["temperature"] <= 200)
+then
+    body.put("router2","true");
+
+end
+
